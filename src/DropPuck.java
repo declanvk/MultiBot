@@ -1,6 +1,5 @@
 import lejos.nxt.LightSensor;
 import lejos.nxt.NXTRegulatedMotor;
-import lejos.nxt.TouchSensor;
 import lejos.robotics.subsumption.Behavior;
 
 
@@ -32,7 +31,17 @@ public class DropPuck implements Behavior {
 
 	
 	public void action() {
+		RIGHT_MOTOR.setSpeed(POWER[2][2]);
+		LEFT_MOTOR.setSpeed(POWER[2][2]);
+
+		RIGHT_MOTOR.backward();
+		LEFT_MOTOR.backward();
 		
+		try {
+			Thread.sleep(1000);
+		} catch(Exception e) {
+			
+		}
 	}
 
 	public void suppress() {
