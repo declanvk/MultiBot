@@ -64,8 +64,6 @@ public class Phototrope implements Behavior {
 
 	public void suppress() {
 
-		RIGHT_MOTOR.stop();
-		LEFT_MOTOR.stop();
 		
 	}
 
