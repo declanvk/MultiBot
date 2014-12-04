@@ -30,6 +30,7 @@ public class DropPuck implements Behavior {
 		return (RIGHT_EYE.getLightValue() + LEFT_EYE.getLightValue()) / 2 >= MAX_LIGHT;
 	}
 
+	
 	public void action() {
 		
 	}
