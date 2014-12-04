@@ -10,14 +10,10 @@ public class RandomSearch implements Behavior {
 
 	@Override
 	public void action() {
-
-
+		
 	}
 
 	@Override
-	public void suppress() {
-
-
-	}
+	public void suppress() {}
 
 }
