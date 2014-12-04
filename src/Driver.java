@@ -25,7 +25,7 @@ public class Driver {// speeds
 		Behavior b1 = new Phototrope(RIGHT_MOTOR, LEFT_MOTOR, RIGHT_EYE, LEFT_EYE, POWER);
 		Behavior b2 = new RandomSearch();
 		
-		Behavior[] bArray = {b1, b2};
+		Behavior[] bArray = {b2, b1};
 		Arbitrator arby = new Arbitrator(bArray);
 		
 		arby.start();
