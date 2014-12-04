@@ -1,6 +1,7 @@
 import lejos.nxt.Button;
 import lejos.nxt.LightSensor;
 import lejos.nxt.NXTRegulatedMotor;
+import lejos.nxt.TouchSensor;
 import lejos.robotics.subsumption.Behavior;
 
 public class Phototrope implements Behavior {
@@ -11,8 +12,10 @@ public class Phototrope implements Behavior {
 	private static LightSensor LEFT_EYE;
 
 	private static int[][] POWER;
+
+	private static TouchSensor T_S;
 	
-	public Phototrope(NXTRegulatedMotor RM, NXTRegulatedMotor LM, LightSensor RE, LightSensor LE, int[][] P) {
+	public Phototrope(NXTRegulatedMotor RM, NXTRegulatedMotor LM, LightSensor RE, LightSensor LE, int[][] P, TouchSensor TS) {
 		RE.setFloodlight(false);
 		LE.setFloodlight(false);
 
@@ -23,6 +26,7 @@ public class Phototrope implements Behavior {
 		LEFT_EYE = LE;
 		
 		POWER = P;
+		T_S = TS;
 	}
 
 	private static int getConditions() {
@@ -38,7 +42,7 @@ public class Phototrope implements Behavior {
 	}
 
 	public boolean takeControl() {
-		return true;
+		return T_S.isPressed();
 	}
 
 	public void action() {

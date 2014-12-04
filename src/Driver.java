@@ -2,6 +2,7 @@ import lejos.nxt.LightSensor;
 import lejos.nxt.MotorPort;
 import lejos.nxt.NXTRegulatedMotor;
 import lejos.nxt.SensorPort;
+import lejos.nxt.TouchSensor;
 import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
 
@@ -12,7 +13,8 @@ public class Driver {// speeds
 		
 		int[][] POWER = {
 		/* LEFT */{ HIGH, LOW },
-		/* RIGHT */{ LOW, HIGH } };
+		/* RIGHT */{ LOW, HIGH },
+		/* CENTER */{ HIGH, HIGH }};
 
 		NXTRegulatedMotor RIGHT_MOTOR = new NXTRegulatedMotor(
 				MotorPort.A);
@@ -21,11 +23,12 @@ public class Driver {// speeds
 
 		LightSensor RIGHT_EYE = new LightSensor(SensorPort.S1);
 		LightSensor LEFT_EYE = new LightSensor(SensorPort.S2);
-
-		Behavior b1 = new Phototrope(RIGHT_MOTOR, LEFT_MOTOR, RIGHT_EYE, LEFT_EYE, POWER);
+		
+		TouchSensor T_S = new TouchSensor(SensorPort.S3);
+		
+		Behavior b1 = new Phototrope(RIGHT_MOTOR, LEFT_MOTOR, RIGHT_EYE, LEFT_EYE, POWER, T_S);
 		Behavior b2 = new RandomSearch();
-		Behavior b3 = new GrabPuck();
-		Behavior b4 = new DropPuck();
+		Behavior b3 = new DropPuck();
 		
 		Behavior[] bArray = {b2, b1};
 		Arbitrator arby = new Arbitrator(bArray);
