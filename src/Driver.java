@@ -23,8 +23,9 @@ public class Driver {// speeds
 		LightSensor LEFT_EYE = new LightSensor(SensorPort.S2);
 
 		Behavior b1 = new Phototrope(RIGHT_MOTOR, LEFT_MOTOR, RIGHT_EYE, LEFT_EYE, POWER);
+		Behavior b2 = new RandomSearch();
 		
-		Behavior[] bArray = {b1};
+		Behavior[] bArray = {b1, b2};
 		Arbitrator arby = new Arbitrator(bArray);
 		
 		arby.start();
