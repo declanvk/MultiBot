@@ -32,7 +32,7 @@ public class Driver {// speeds
 		TouchSensor T_S = new TouchSensor(SensorPort.S3);
 		
 		while (!Button.ENTER.isDown()) {
-			MAX_LIGHT = (RIGHT_EYE.getLightValue() + LEFT_EYE.getLightValue()) / 2;
+			MAX_LIGHT = (RIGHT_EYE.getLightValue() + LEFT_EYE.getLightValue()) / 2; // calibrating average highest light
 		}
 		
 		Behavior b1 = new RandomSearch();
