@@ -42,11 +42,12 @@ public class Phototrope implements Behavior {
 	}
 
 	public boolean takeControl() {
+		Driver.writeStatus("Phototrope", "Take Control", "");
 		return T_S.isPressed();
 	}
 
 	public void action() {
-
+		Driver.writeStatus("Phototrope", "Action", "");
 
 		RIGHT_MOTOR.backward();
 		LEFT_MOTOR.backward();
@@ -63,8 +64,7 @@ public class Phototrope implements Behavior {
 	}
 
 	public void suppress() {
-
-		
+		Driver.writeStatus("Phototrope", "Suppress", "");
 	}
 
 }

@@ -5,20 +5,23 @@ import lejos.robotics.subsumption.Behavior;
 
 public class DropPuck implements Behavior {
 	
-	private static NXTRegulatedMotor RIGHT_MOTOR;
-	private static NXTRegulatedMotor LEFT_MOTOR;
+	private final NXTRegulatedMotor RIGHT_MOTOR;
+	private final NXTRegulatedMotor LEFT_MOTOR;
 	
-	private static LightSensor RIGHT_EYE;
-	private static LightSensor LEFT_EYE;
+	private final LightSensor RIGHT_EYE;
+	private final LightSensor LEFT_EYE;
 
-	private static int[][] POWER;
+	private final int[][] POWER;
 	
 	private static double MAX_LIGHT;
 	
-	public DropPuck(NXTRegulatedMotor RM, NXTRegulatedMotor LM, int[][] P, double M_L) {
+	public DropPuck(NXTRegulatedMotor RM, NXTRegulatedMotor LM, int[][] P, double M_L, LightSensor RE, LightSensor LE) {
 
 		RIGHT_MOTOR = RM;
 		LEFT_MOTOR = LM;
+		
+		RIGHT_EYE = RE;
+		LEFT_EYE = LE;
 		
 		POWER = P;
 		
@@ -26,13 +29,15 @@ public class DropPuck implements Behavior {
 	}
 	
 	public boolean takeControl() {
+		Driver.writeStatus("Drop Puck", "Take Control", "");
 		return (RIGHT_EYE.getLightValue() + LEFT_EYE.getLightValue()) / 2 >= MAX_LIGHT;
 	}
 
 	
 	public void action() {
-		RIGHT_MOTOR.setSpeed(POWER[2][2]);
-		LEFT_MOTOR.setSpeed(POWER[2][2]);
+		Driver.writeStatus("Drop Puck", "Action", "");
+		RIGHT_MOTOR.setSpeed(POWER[2][0]);
+		LEFT_MOTOR.setSpeed(POWER[2][1]);
 
 		RIGHT_MOTOR.backward();
 		LEFT_MOTOR.backward();
@@ -45,7 +50,7 @@ public class DropPuck implements Behavior {
 	}
 
 	public void suppress() {
-		
+		Driver.writeStatus("Drop Puck", "Suppress", "");
 	}
 
 }

@@ -19,11 +19,13 @@ public class AvoidWall implements Behavior {
 
 	@Override
 	public boolean takeControl() {
+		Driver.writeStatus("Avoid Wall", "Take Control", Integer.toString(ULTRA_SENSOR.getDistance()));
 		return ULTRA_SENSOR.getDistance() < 30;
 	}
 
 	@Override
 	public void action() {
+		Driver.writeStatus("Avoid Wall", "Action", "");
 		// Set up backing up from wall
 		RIGHT_MOTOR.stop();
 		LEFT_MOTOR.stop();
@@ -43,6 +45,7 @@ public class AvoidWall implements Behavior {
 
 	@Override
 	public void suppress() {
+		Driver.writeStatus("Avoid Wall", "Suppress", "");
 	}
 
 	private void sleep(long milli) {
@@ -52,5 +55,4 @@ public class AvoidWall implements Behavior {
 			e.printStackTrace();
 		}
 	}
-
 }
