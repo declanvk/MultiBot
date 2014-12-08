@@ -35,7 +35,7 @@ public class Driver {// speeds
 			MAX_LIGHT = (RIGHT_EYE.getLightValue() + LEFT_EYE.getLightValue()) / 2; // calibrating average highest light
 		}
 		
-		Behavior b1 = new RandomSearch();
+		Behavior b1 = new RandomSearch(RIGHT_MOTOR, LEFT_MOTOR, U_S, POWER);
 		Behavior b3 = new Phototrope(RIGHT_MOTOR, LEFT_MOTOR, RIGHT_EYE, LEFT_EYE, POWER, T_S);
 		Behavior b2 = new AvoidWall(RIGHT_MOTOR, LEFT_MOTOR, U_S ,POWER);
 		Behavior b4 = new DropPuck(RIGHT_MOTOR, LEFT_MOTOR, POWER, MAX_LIGHT);
