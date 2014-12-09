@@ -49,7 +49,7 @@ public class Driver {// speeds
 		Behavior b4 = new DropPuck(RIGHT_MOTOR, LEFT_MOTOR, POWER, MAX_LIGHT,
 				RIGHT_EYE, LEFT_EYE);
 
-		Behavior[] bArray = { b1, b2, b3, b4 };
+		Behavior[] bArray = { b1, b3, b4, b2 };
 		Arbitrator arby = new Arbitrator(bArray);
 
 		arby.start();

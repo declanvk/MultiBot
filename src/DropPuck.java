@@ -29,8 +29,9 @@ public class DropPuck implements Behavior {
 	}
 	
 	public boolean takeControl() {
-		Driver.writeStatus("Drop Puck", "Take Control", "");
-		return (RIGHT_EYE.getLightValue() + LEFT_EYE.getLightValue()) / 2 >= MAX_LIGHT;
+	//	Driver.writeStatus("Drop Puck", "Take Control", "");
+	//	return (RIGHT_EYE.getLightValue() + LEFT_EYE.getLightValue()) / 2 >= MAX_LIGHT;'
+		return false;
 	}
 
 	

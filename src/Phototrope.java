@@ -42,7 +42,7 @@ public class Phototrope implements Behavior {
 	}
 
 	public boolean takeControl() {
-		Driver.writeStatus("Phototrope", "Take Control", "");
+		//Driver.writeStatus("Phototrope", "Take Control", "");
 		return T_S.isPressed();
 	}
 

@@ -22,7 +22,7 @@ public class RandomSearch implements Behavior {
 
 	@Override
 	public boolean takeControl() {
-		Driver.writeStatus("Search", "Take Control", "");
+	//	Driver.writeStatus("Search", "Take Control", "");
 		return true;                                                                                   
 	}
 
