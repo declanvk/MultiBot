@@ -37,7 +37,7 @@ public class RandomSearch implements Behavior {
 		RIGHT_MOTOR.setSpeed(POWER[2][0]);
 		LEFT_MOTOR.setSpeed(POWER[2][1]);
 
-		sleep(SLEEP_TIME);
+		sleep(rGen.nextInt(4) * SLEEP_TIME);
 
 		int cond = rGen.nextInt(2) + 3;
 		RIGHT_MOTOR.setSpeed(POWER[cond][0]);

@@ -22,7 +22,7 @@ public class AvoidWall implements Behavior {
 	@Override
 	public boolean takeControl() {
 		//Driver.writeStatus("Avoid Wall", "Take Control", Integer.toString(ULTRA_SENSOR.getDistance()));
-		return ULTRA_SENSOR.getDistance() < 40;
+		return ULTRA_SENSOR.getDistance() < 25;
 	}
 
 	@Override
@@ -41,8 +41,8 @@ public class AvoidWall implements Behavior {
 		
 
 		// Turn away from wall
-		RIGHT_MOTOR.rotate(-90);
-		LEFT_MOTOR.rotate(90);
+		RIGHT_MOTOR.rotate(-180);
+		LEFT_MOTOR.rotate(180);
 	}
 
 	@Override
