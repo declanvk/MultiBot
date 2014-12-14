@@ -29,17 +29,21 @@ public class RandomSearch implements Behavior {
 	@Override
 	public void action() {
 		Driver.writeStatus("Search", "Action", "");
-		RIGHT_MOTOR.setSpeed(POWER[2][0]);
-		LEFT_MOTOR.setSpeed(POWER[2][1]);
+
 
 		RIGHT_MOTOR.backward();
 		LEFT_MOTOR.backward();
+		
+		RIGHT_MOTOR.setSpeed(POWER[2][0]);
+		LEFT_MOTOR.setSpeed(POWER[2][1]);
 
 		sleep(SLEEP_TIME);
 
 		int cond = rGen.nextInt(2) + 3;
 		RIGHT_MOTOR.setSpeed(POWER[cond][0]);
 		LEFT_MOTOR.setSpeed(POWER[cond][1]);
+		
+		sleep(SLEEP_TIME);
 	}
 
 	@Override

@@ -19,8 +19,8 @@ public class Driver {// speeds
 		/* LEFT */{ HIGH, LOW },
 		/* RIGHT */{ LOW, HIGH },
 		/* CENTER */{ HIGH, HIGH },
-		/* FAST LEFT */{ HIGH * 2, LOW / 2 },
-		/* FAST RIGHT */{ LOW / 2, HIGH * 2 } };
+		/* FAST LEFT */{ HIGH * 4, LOW / 4 },
+		/* FAST RIGHT */{ LOW / 4, HIGH * 4 } };
 
 		NXTRegulatedMotor RIGHT_MOTOR = new NXTRegulatedMotor(MotorPort.A);
 		NXTRegulatedMotor LEFT_MOTOR = new NXTRegulatedMotor(MotorPort.B);
@@ -49,7 +49,7 @@ public class Driver {// speeds
 		Behavior b4 = new DropPuck(RIGHT_MOTOR, LEFT_MOTOR, POWER, MAX_LIGHT,
 				RIGHT_EYE, LEFT_EYE);
 
-		Behavior[] bArray = { b1, b3, b4, b2 };
+		Behavior[] bArray = { b1, b2, b3, b4 };
 		Arbitrator arby = new Arbitrator(bArray);
 
 		arby.start();
