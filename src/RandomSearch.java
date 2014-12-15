@@ -37,7 +37,7 @@ public class RandomSearch implements Behavior {
 		RIGHT_MOTOR.setSpeed(POWER[2][0]);
 		LEFT_MOTOR.setSpeed(POWER[2][1]);
 
-		sleep((long) (rGen.nextDouble() * SLEEP_TIME));
+		sleep((long) ((rGen.nextDouble() + 0.5) * SLEEP_TIME));
 		
 		int angle = rGen.nextInt(360) * (rGen.nextBoolean() ? -1 : 1);
 		RIGHT_MOTOR.rotate(angle, false);

@@ -43,6 +43,13 @@ public class Driver {// speeds
 			LCD.drawString(String.valueOf(MAX_LIGHT), 4, 4);
 		}
 		
+		try {
+			Thread.sleep(250);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		while (!Button.ENTER.isDown()) {}
 
 		Behavior b1 = new RandomSearch(RIGHT_MOTOR, LEFT_MOTOR, U_S, POWER);
