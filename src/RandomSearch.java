@@ -11,7 +11,7 @@ public class RandomSearch implements Behavior {
 	private final Random rGen = new Random();
 	private final int[][] POWER;
 
-	private static final int SLEEP_TIME = 400;
+	private static final int SLEEP_TIME = 600;
 
 	public RandomSearch(NXTRegulatedMotor rm, NXTRegulatedMotor lm,
 			UltrasonicSensor us, int[][] p) {
@@ -37,13 +37,11 @@ public class RandomSearch implements Behavior {
 		RIGHT_MOTOR.setSpeed(POWER[2][0]);
 		LEFT_MOTOR.setSpeed(POWER[2][1]);
 
-		sleep(rGen.nextInt(4) * SLEEP_TIME);
-
-		int cond = rGen.nextInt(2) + 3;
-		RIGHT_MOTOR.setSpeed(POWER[cond][0]);
-		LEFT_MOTOR.setSpeed(POWER[cond][1]);
+		sleep((long) (rGen.nextDouble() * SLEEP_TIME));
 		
-		sleep(SLEEP_TIME);
+		int angle = rGen.nextInt(360) * (rGen.nextBoolean() ? -1 : 1);
+		RIGHT_MOTOR.rotate(angle, false);
+		RIGHT_MOTOR.rotate(-angle, false);
 	}
 
 	@Override
