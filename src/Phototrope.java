@@ -1,4 +1,3 @@
-import lejos.nxt.Button;
 import lejos.nxt.LCD;
 import lejos.nxt.LightSensor;
 import lejos.nxt.NXTRegulatedMotor;
@@ -44,9 +43,9 @@ public class Phototrope implements Behavior {
 	}
 
 	public boolean takeControl() {
-		//Driver.writeStatus("Phototrope", "Take Control", "");
+		// Driver.writeStatus("Phototrope", "Take Control", "");
 		LCD.drawString(String.valueOf(T_S.isPressed()), 3, 3);
-		 return T_S.isPressed();
+		return T_S.isPressed();
 	}
 
 	public void action() {
@@ -54,15 +53,10 @@ public class Phototrope implements Behavior {
 
 		RIGHT_MOTOR.backward();
 		LEFT_MOTOR.backward();
-		int cond = 0;
+		int cond = getConditions();
 
-		while (!Button.ENTER.isDown()) {
-			cond = getConditions();
-
-			RIGHT_MOTOR.setSpeed(POWER[cond][0]);
-			LEFT_MOTOR.setSpeed(POWER[cond][1]);
-
-		}
+		RIGHT_MOTOR.setSpeed(POWER[cond][0]);
+		LEFT_MOTOR.setSpeed(POWER[cond][1]);
 
 	}
 

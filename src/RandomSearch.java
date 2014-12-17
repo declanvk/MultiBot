@@ -41,7 +41,7 @@ public class RandomSearch implements Behavior {
 		
 		int angle = rGen.nextInt(360) * (rGen.nextBoolean() ? -1 : 1);
 		RIGHT_MOTOR.rotate(angle, false);
-		RIGHT_MOTOR.rotate(-angle, false);
+		LEFT_MOTOR.rotate(-angle, false);
 	}
 
 	@Override
