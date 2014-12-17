@@ -10,6 +10,8 @@ import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
 
 public class Driver {// speeds
+	public static boolean PHOTOTROPE_STATE;
+
 	public static void main(String[] args) {
 		int HIGH = 800; // 4/3 of MED (Safe @ 533)
 		int LOW = 200; // 2/3 of MED (Safe @ 267)
@@ -37,20 +39,21 @@ public class Driver {// speeds
 
 		while (!Button.ENTER.isDown()) {
 			MAX_LIGHT = (RIGHT_EYE.getLightValue() + LEFT_EYE.getLightValue()) / 2.0; // calibrating
-																					// average
-																					// highest
-																					// light
+																						// average
+																						// highest
+																						// light
 			LCD.drawString(String.valueOf(MAX_LIGHT), 4, 4);
 		}
-		
+
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		while (!Button.ENTER.isDown()) {}
+
+		while (!Button.ENTER.isDown()) {
+		}
 
 		Behavior b1 = new RandomSearch(RIGHT_MOTOR, LEFT_MOTOR, U_S, POWER);
 		Behavior b3 = new Phototrope(RIGHT_MOTOR, LEFT_MOTOR, RIGHT_EYE,

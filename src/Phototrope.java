@@ -45,7 +45,11 @@ public class Phototrope implements Behavior {
 	public boolean takeControl() {
 		// Driver.writeStatus("Phototrope", "Take Control", "");
 		LCD.drawString(String.valueOf(T_S.isPressed()), 3, 3);
-		return T_S.isPressed();
+		if(T_S.isPressed() || Driver.PHOTOTROPE_STATE) {
+			Driver.PHOTOTROPE_STATE = true;
+			return true;
+		} else
+			return false;
 	}
 
 	public void action() {
@@ -53,10 +57,15 @@ public class Phototrope implements Behavior {
 
 		RIGHT_MOTOR.backward();
 		LEFT_MOTOR.backward();
-		int cond = getConditions();
+		int cond = 0;
 
-		RIGHT_MOTOR.setSpeed(POWER[cond][0]);
-		LEFT_MOTOR.setSpeed(POWER[cond][1]);
+		while (Driver.PHOTOTROPE_STATE) {
+			cond = getConditions();
+
+			RIGHT_MOTOR.setSpeed(POWER[cond][0]);
+			LEFT_MOTOR.setSpeed(POWER[cond][1]);
+
+		}
 
 	}
 

@@ -22,26 +22,29 @@ public class RandomSearch implements Behavior {
 
 	@Override
 	public boolean takeControl() {
-	//	Driver.writeStatus("Search", "Take Control", "");
-		return true;                                                                                   
+		// Driver.writeStatus("Search", "Take Control", "");
+		return true;
 	}
 
 	@Override
 	public void action() {
 		Driver.writeStatus("Search", "Action", "");
 
+		double per = rGen.nextInt(10) / 10.0;
+		if (rGen.nextBoolean())
+			RIGHT_MOTOR.setSpeed((int) (per * POWER[2][0]));
+		else
+			LEFT_MOTOR.setSpeed((int) (per * POWER[2][0]));
+
+		sleep((long) (rGen.nextDouble() * SLEEP_TIME));
 
 		RIGHT_MOTOR.backward();
 		LEFT_MOTOR.backward();
-		
+
 		RIGHT_MOTOR.setSpeed(POWER[2][0]);
 		LEFT_MOTOR.setSpeed(POWER[2][1]);
 
 		sleep((long) ((rGen.nextDouble() + 0.5) * SLEEP_TIME));
-		
-		int angle = rGen.nextInt(360) * (rGen.nextBoolean() ? -1 : 1);
-		RIGHT_MOTOR.rotate(angle, false);
-		LEFT_MOTOR.rotate(-angle, false);
 	}
 
 	@Override

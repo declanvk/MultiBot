@@ -15,14 +15,15 @@ public class AvoidWall implements Behavior {
 		this.LEFT_MOTOR = lm;
 		this.ULTRA_SENSOR = us;
 		this.POWER = p;
-		
+
 		ULTRA_SENSOR.continuous();
 	}
 
 	@Override
 	public boolean takeControl() {
-		//Driver.writeStatus("Avoid Wall", "Take Control", Integer.toString(ULTRA_SENSOR.getDistance()));
-		return ULTRA_SENSOR.getDistance() < 25;
+		// Driver.writeStatus("Avoid Wall", "Take Control",
+		// Integer.toString(ULTRA_SENSOR.getDistance()));
+		return ULTRA_SENSOR.getDistance() < 30;
 	}
 
 	@Override
@@ -38,7 +39,6 @@ public class AvoidWall implements Behavior {
 
 		// Backup for 20 milliseconds
 		sleep(200);
-		
 
 		// Turn away from wall
 		RIGHT_MOTOR.rotate(-180);
